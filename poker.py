@@ -33,7 +33,7 @@ def pause():
 		# start pause
 		paused = True
 	else:
-		#stop pause
+		# stop pause
 		paused = False
 		paused_for_time = datetime.now() - time
 		start = start + paused_for_time
@@ -56,22 +56,21 @@ with open('blinds.csv', 'r') as csvfile:
 		blinds[player_count] = blinds_list
 
 
+pygame.display.init()
+pygame.display.set_caption("Poker Timer")
+screen = pygame.display.set_mode((1024, 768))
+
 pygame.mixer.init()
 alert_sound = pygame.mixer.Sound(file = "tiauo.ogg")
-
-screen = pygame.display.set_mode((1024, 768))
-# infoObject = pygame.display.Info()
-# screen =  pygame.display.set_mode((infoObject.current_w, infoObject.current_h))
 
 pygame.font.init()
 big_font = pygame.font.SysFont('DejaVu Sans', 240)
 small_font = pygame.font.SysFont('DejaVu Sans', 120)
 very_small_font = pygame.font.SysFont('DejaVu Sans', 30)
-start = datetime.now()
 
+start = datetime.now()
 blind_level = 0
 players = 4
-
 paused = False
 
 while 1:
@@ -91,7 +90,7 @@ while 1:
 	for event in pygame.event.get():
 		if event.type == pygame.KEYDOWN:
 			if event.key == pygame.K_RETURN:
-				timer_done()
+				timer_done(sound = False)
 			elif event.key == pygame.K_SPACE:
 				pause()
 			elif event.key == pygame.K_ESCAPE:
