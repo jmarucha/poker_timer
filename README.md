@@ -19,3 +19,7 @@ python3 poker.py
 - Space - pause
 - Return - skip round
 - Escape - exit
+
+## Credits
+
+Sound tiauo.ogg has been made by Amada44 (Own work) and shared on Wikimedia Commons ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0))
