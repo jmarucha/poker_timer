@@ -2,6 +2,7 @@
 import pygame
 import csv
 import sys
+import time
 from datetime import datetime, timedelta
 
 INTERVAL =  timedelta(minutes = 20)
@@ -75,13 +76,13 @@ paused = False
 
 while 1:
 	if not paused:
-		time = datetime.now()
+		timecount = datetime.now()
 
-	if (INTERVAL < time - start):
+	if (INTERVAL < timecount - start):
 		timer_done()
 
 	try:
-		render_frame(INTERVAL - (time - start), blinds[players][blind_level], players)
+		render_frame(INTERVAL - (timecount - start), blinds[players][blind_level], players)
 	except IndexError:
 		render_frame(0, blinds[players][-1], players, timer_done = True)
 
@@ -111,3 +112,4 @@ while 1:
 		if event.type == pygame.QUIT:
 			sys.exit()
 	pygame.display.flip()
+	time.sleep(0.2)
